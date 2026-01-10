@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4ef40031d82f9881a587e16d3285803d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4ef40031d82f9881a587e16d3285803d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4ef40031d82f9881a587e16d3285803d = L.map(
+                "map_4ef40031d82f9881a587e16d3285803d",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9038b57ce0911829af486173414cbe58 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_2fa6dcc3f41e332664e9f74ef5682e09 = new L.Control.MiniMap(
+                tile_layer_9038b57ce0911829af486173414cbe58,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": false,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_4ef40031d82f9881a587e16d3285803d.addControl(mini_map_2fa6dcc3f41e332664e9f74ef5682e09);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topleft",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_4ef40031d82f9881a587e16d3285803d);
+        
+    
+
+            var geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f = {
+  "collapsed": false,
+  "position": "topright",
+  "defaultMarkGeocode": true,
+  "zoom": 11,
+  "provider": "nominatim",
+  "providerOptions": {
+},
+};
+
+            // note: geocoder name should start with lowercase
+            var geocoderName_geocoder_2f09cb0746e670d246232e72027ebb0f = geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f["provider"];
+
+            var customGeocoder_geocoder_2f09cb0746e670d246232e72027ebb0f = L.Control.Geocoder[ geocoderName_geocoder_2f09cb0746e670d246232e72027ebb0f ](
+                geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f['providerOptions']
+            );
+            geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f["geocoder"] = customGeocoder_geocoder_2f09cb0746e670d246232e72027ebb0f;
+
+            L.Control.geocoder(
+                geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f
+            ).on('markgeocode', function(e) {
+                var zoom = geocoderOpts_geocoder_2f09cb0746e670d246232e72027ebb0f['zoom'] || map_4ef40031d82f9881a587e16d3285803d.getZoom();
+                map_4ef40031d82f9881a587e16d3285803d.setView(e.geocode.center, zoom);
+            }).addTo(map_4ef40031d82f9881a587e16d3285803d);
+
+        
+    
+            var measure_control_2be566320cb75fc344b887bfda5f9d86 = new L.Control.Measure(
+                {
+  "position": "topright",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "miles",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_4ef40031d82f9881a587e16d3285803d.addControl(measure_control_2be566320cb75fc344b887bfda5f9d86);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var mouse_position_8b17b78cc5003940e4ee80c0d0030e3d = new L.Control.MousePosition(
+                {
+  "position": "bottomright",
+  "separator": " : ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "",
+}
+            );
+            mouse_position_8b17b78cc5003940e4ee80c0d0030e3d.options["latFormatter"] =
+                undefined;
+            mouse_position_8b17b78cc5003940e4ee80c0d0030e3d.options["lngFormatter"] =
+                undefined;
+            map_4ef40031d82f9881a587e16d3285803d.addControl(mouse_position_8b17b78cc5003940e4ee80c0d0030e3d);
+        
+    
+            var tile_layer_16be9df11c018de41ba7d14e199d527f = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_16be9df11c018de41ba7d14e199d527f.addTo(map_4ef40031d82f9881a587e16d3285803d);
+        
+    
+            var tile_layer_b444e56ec07c37fcfca16281219e7e89 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b444e56ec07c37fcfca16281219e7e89.addTo(map_4ef40031d82f9881a587e16d3285803d);
+        
+    
+            var marker_cluster_aea0a6b18fd6e435db94323572a37a23 = L.markerClusterGroup(
+                {
+  "spiderfyOnMaxZoom": true,
+  "showCoverageOnHover": true,
+  "zoomToBoundsOnClick": true,
+}
+            );
+        
+    
+            var marker_685ab9f24b6a90e531828b635f0fd844 = L.marker(
+                [-34.6, -58.4],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_78a518c76528010e95a56fa508772cca = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/ar.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_1b54011d2b43059824e4c72145452eac = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_03301404f08b1f65f49f937e0b15a6f8 = $(`<div id="html_03301404f08b1f65f49f937e0b15a6f8" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Argentina</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1978.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px;">Netherlands</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">102.0</td>             </tr>         </table></div></div>`)[0];
+                popup_1b54011d2b43059824e4c72145452eac.setContent(html_03301404f08b1f65f49f937e0b15a6f8);
+            
+        
+
+        marker_685ab9f24b6a90e531828b635f0fd844.bindPopup(popup_1b54011d2b43059824e4c72145452eac)
+        ;
+
+        
+    
+    
+            marker_685ab9f24b6a90e531828b635f0fd844.bindTooltip(
+                `<div>
+                     Argentina (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_685ab9f24b6a90e531828b635f0fd844.setIcon(custom_icon_78a518c76528010e95a56fa508772cca);
+            
+    
+            var marker_32151dcf9aff0daec3292ab83ae8cd8b = L.marker(
+                [-15.8, -47.9],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+            var div_icon_2150691458197c587a2b6844f60ca82c = L.divIcon({
+  "html": "\n        \u003cdiv style=\"position:relative; border-radius:3px; overflow:hidden;\"\u003e\n            \u003cimg src=\u0027https://flagcdn.com/w40/br.png\u0027 style=\u0027width:40px; vertical-align:middle;\u0027\u003e\n            \u003cdiv style=\"position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:white; text-align:center; font-weight:bold; font-size:12px; padding:2px;\"\u003e\n                2 edi\u00e7\u00f5es\n            \u003c/div\u003e\n        \u003c/div\u003e\n        ",
+  "iconSize": [50, 40],
+  "iconAnchor": [25, 40],
+  "className": "empty",
+});
+        
+    
+        var popup_9c0fd787b9bc526ed4073599652a4da7 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_6a830e66c63a0df8b0c0422ac6f7bb1e = $(`<div id="html_6a830e66c63a0df8b0c0422ac6f7bb1e" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Brazil</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1950.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Uruguay</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">88.0</td>             </tr>                        <tr>                 <td style="border:1px solid #ddd; padding:6px;">2014.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">171.0</td>             </tr>         </table></div></div>`)[0];
+                popup_9c0fd787b9bc526ed4073599652a4da7.setContent(html_6a830e66c63a0df8b0c0422ac6f7bb1e);
+            
+        
+
+        marker_32151dcf9aff0daec3292ab83ae8cd8b.bindPopup(popup_9c0fd787b9bc526ed4073599652a4da7)
+        ;
+
+        
+    
+    
+            marker_32151dcf9aff0daec3292ab83ae8cd8b.bindTooltip(
+                `<div>
+                     Brazil (2 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32151dcf9aff0daec3292ab83ae8cd8b.setIcon(div_icon_2150691458197c587a2b6844f60ca82c);
+            
+    
+            var marker_ad08dae46e9b06b0b539c907a1f7e1e7 = L.marker(
+                [-33.4, -70.7],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_175f71c7f34ae431705ecedc7816c00d = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/cl.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_d6299f109c6a0973acb7741dd62d40b7 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_fd3e097ade671786c1d581a654937e12 = $(`<div id="html_fd3e097ade671786c1d581a654937e12" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Chile</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1962.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Czechoslovakia</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">89.0</td>             </tr>         </table></div></div>`)[0];
+                popup_d6299f109c6a0973acb7741dd62d40b7.setContent(html_fd3e097ade671786c1d581a654937e12);
+            
+        
+
+        marker_ad08dae46e9b06b0b539c907a1f7e1e7.bindPopup(popup_d6299f109c6a0973acb7741dd62d40b7)
+        ;
+
+        
+    
+    
+            marker_ad08dae46e9b06b0b539c907a1f7e1e7.bindTooltip(
+                `<div>
+                     Chile (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ad08dae46e9b06b0b539c907a1f7e1e7.setIcon(custom_icon_175f71c7f34ae431705ecedc7816c00d);
+            
+    
+            var marker_080cf1b84a1ef98acd2e4dcad44d3a18 = L.marker(
+                [51.5, -0.1],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_2e9fc7f6f1eef3a64d997b97483672bd = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/gb.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_d9024b96be473f8f0e76db5e83d1e83d = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_72669fafc5489fd1d4479ba62989d93f = $(`<div id="html_72669fafc5489fd1d4479ba62989d93f" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">England</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1966.0</td>                 <td style="border:1px solid #ddd; padding:6px;">England</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">89.0</td>             </tr>         </table></div></div>`)[0];
+                popup_d9024b96be473f8f0e76db5e83d1e83d.setContent(html_72669fafc5489fd1d4479ba62989d93f);
+            
+        
+
+        marker_080cf1b84a1ef98acd2e4dcad44d3a18.bindPopup(popup_d9024b96be473f8f0e76db5e83d1e83d)
+        ;
+
+        
+    
+    
+            marker_080cf1b84a1ef98acd2e4dcad44d3a18.bindTooltip(
+                `<div>
+                     England (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_080cf1b84a1ef98acd2e4dcad44d3a18.setIcon(custom_icon_2e9fc7f6f1eef3a64d997b97483672bd);
+            
+    
+            var marker_c826270799fe059e216787c1c72bf9ad = L.marker(
+                [48.9, 2.3],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+            var div_icon_30eef9227e7b35049a59d5e2e52d7470 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"position:relative; border-radius:3px; overflow:hidden;\"\u003e\n            \u003cimg src=\u0027https://flagcdn.com/w40/fr.png\u0027 style=\u0027width:40px; vertical-align:middle;\u0027\u003e\n            \u003cdiv style=\"position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:white; text-align:center; font-weight:bold; font-size:12px; padding:2px;\"\u003e\n                2 edi\u00e7\u00f5es\n            \u003c/div\u003e\n        \u003c/div\u003e\n        ",
+  "iconSize": [50, 40],
+  "iconAnchor": [25, 40],
+  "className": "empty",
+});
+        
+    
+        var popup_22ba97361a880d11fd4f9eae08c53b93 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_915e2f1ba4604129cfee275da5c9c51e = $(`<div id="html_915e2f1ba4604129cfee275da5c9c51e" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">France</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1938.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px;">Hungary</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">84.0</td>             </tr>                        <tr>                 <td style="border:1px solid #ddd; padding:6px;">1998.0</td>                 <td style="border:1px solid #ddd; padding:6px;">France</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">171.0</td>             </tr>         </table></div></div>`)[0];
+                popup_22ba97361a880d11fd4f9eae08c53b93.setContent(html_915e2f1ba4604129cfee275da5c9c51e);
+            
+        
+
+        marker_c826270799fe059e216787c1c72bf9ad.bindPopup(popup_22ba97361a880d11fd4f9eae08c53b93)
+        ;
+
+        
+    
+    
+            marker_c826270799fe059e216787c1c72bf9ad.bindTooltip(
+                `<div>
+                     France (2 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c826270799fe059e216787c1c72bf9ad.setIcon(div_icon_30eef9227e7b35049a59d5e2e52d7470);
+            
+    
+            var marker_4ff13de630ed47d9027944e635686a9f = L.marker(
+                [52.5, 13.4],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+            var div_icon_bb57dd12aed697aab086b083564dc024 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"position:relative; border-radius:3px; overflow:hidden;\"\u003e\n            \u003cimg src=\u0027https://flagcdn.com/w40/de.png\u0027 style=\u0027width:40px; vertical-align:middle;\u0027\u003e\n            \u003cdiv style=\"position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:white; text-align:center; font-weight:bold; font-size:12px; padding:2px;\"\u003e\n                2 edi\u00e7\u00f5es\n            \u003c/div\u003e\n        \u003c/div\u003e\n        ",
+  "iconSize": [50, 40],
+  "iconAnchor": [25, 40],
+  "className": "empty",
+});
+        
+    
+        var popup_02dfa6681e6b98f17714d4fffaa6be46 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_f494b065f00c48b81a5362209edf9622 = $(`<div id="html_f494b065f00c48b81a5362209edf9622" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Germany</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1974.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px;">Netherlands</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">97.0</td>             </tr>                        <tr>                 <td style="border:1px solid #ddd; padding:6px;">2006.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px;">France</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">147.0</td>             </tr>         </table></div></div>`)[0];
+                popup_02dfa6681e6b98f17714d4fffaa6be46.setContent(html_f494b065f00c48b81a5362209edf9622);
+            
+        
+
+        marker_4ff13de630ed47d9027944e635686a9f.bindPopup(popup_02dfa6681e6b98f17714d4fffaa6be46)
+        ;
+
+        
+    
+    
+            marker_4ff13de630ed47d9027944e635686a9f.bindTooltip(
+                `<div>
+                     Germany (2 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4ff13de630ed47d9027944e635686a9f.setIcon(div_icon_bb57dd12aed697aab086b083564dc024);
+            
+    
+            var marker_cee24b666de63c749626a39d14e5e2f5 = L.marker(
+                [41.9, 12.5],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+            var div_icon_d4053d9a0c7ac694ecc91cbd7db61bff = L.divIcon({
+  "html": "\n        \u003cdiv style=\"position:relative; border-radius:3px; overflow:hidden;\"\u003e\n            \u003cimg src=\u0027https://flagcdn.com/w40/it.png\u0027 style=\u0027width:40px; vertical-align:middle;\u0027\u003e\n            \u003cdiv style=\"position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:white; text-align:center; font-weight:bold; font-size:12px; padding:2px;\"\u003e\n                2 edi\u00e7\u00f5es\n            \u003c/div\u003e\n        \u003c/div\u003e\n        ",
+  "iconSize": [50, 40],
+  "iconAnchor": [25, 40],
+  "className": "empty",
+});
+        
+    
+        var popup_dd69539b81395817ccb1e7c9b14db8cb = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_7da518a92fcab3992e74ef515398eb13 = $(`<div id="html_7da518a92fcab3992e74ef515398eb13" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Italy</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1934.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px;">Czechoslovakia</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">70.0</td>             </tr>                        <tr>                 <td style="border:1px solid #ddd; padding:6px;">1990.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">115.0</td>             </tr>         </table></div></div>`)[0];
+                popup_dd69539b81395817ccb1e7c9b14db8cb.setContent(html_7da518a92fcab3992e74ef515398eb13);
+            
+        
+
+        marker_cee24b666de63c749626a39d14e5e2f5.bindPopup(popup_dd69539b81395817ccb1e7c9b14db8cb)
+        ;
+
+        
+    
+    
+            marker_cee24b666de63c749626a39d14e5e2f5.bindTooltip(
+                `<div>
+                     Italy (2 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cee24b666de63c749626a39d14e5e2f5.setIcon(div_icon_d4053d9a0c7ac694ecc91cbd7db61bff);
+            
+    
+            var marker_299c3645dbec1f6efa9d69213be983a3 = L.marker(
+                [36.0, 138.0],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_bc8a85e401475b630d6d6f2d46354ea7 = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/jp.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_1297e6ce378ad1570032a2573d28d5b6 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_30a7d1cc4039921cefe4a28129d8cfb4 = $(`<div id="html_30a7d1cc4039921cefe4a28129d8cfb4" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Japan</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">2002.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">161.0</td>             </tr>         </table></div></div>`)[0];
+                popup_1297e6ce378ad1570032a2573d28d5b6.setContent(html_30a7d1cc4039921cefe4a28129d8cfb4);
+            
+        
+
+        marker_299c3645dbec1f6efa9d69213be983a3.bindPopup(popup_1297e6ce378ad1570032a2573d28d5b6)
+        ;
+
+        
+    
+    
+            marker_299c3645dbec1f6efa9d69213be983a3.bindTooltip(
+                `<div>
+                     Japan (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_299c3645dbec1f6efa9d69213be983a3.setIcon(custom_icon_bc8a85e401475b630d6d6f2d46354ea7);
+            
+    
+            var marker_934ab47c3a429e692366492391dc46b2 = L.marker(
+                [36.5, 127.5],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_ee585c82117b31c34a2754118c7f2e94 = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/kr.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_68c78920c17c269dbb36b28a0f4c7e55 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_0a692522297870508adf08b326cc8589 = $(`<div id="html_0a692522297870508adf08b326cc8589" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Korea</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">2002.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">161.0</td>             </tr>         </table></div></div>`)[0];
+                popup_68c78920c17c269dbb36b28a0f4c7e55.setContent(html_0a692522297870508adf08b326cc8589);
+            
+        
+
+        marker_934ab47c3a429e692366492391dc46b2.bindPopup(popup_68c78920c17c269dbb36b28a0f4c7e55)
+        ;
+
+        
+    
+    
+            marker_934ab47c3a429e692366492391dc46b2.bindTooltip(
+                `<div>
+                     Korea (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_934ab47c3a429e692366492391dc46b2.setIcon(custom_icon_ee585c82117b31c34a2754118c7f2e94);
+            
+    
+            var marker_feb971ac69f809bf61ba8c2155eadedc = L.marker(
+                [19.4, -99.1],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+            var div_icon_fac7769c4cb1472a79a586823873d952 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"position:relative; border-radius:3px; overflow:hidden;\"\u003e\n            \u003cimg src=\u0027https://flagcdn.com/w40/mx.png\u0027 style=\u0027width:40px; vertical-align:middle;\u0027\u003e\n            \u003cdiv style=\"position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); color:white; text-align:center; font-weight:bold; font-size:12px; padding:2px;\"\u003e\n                2 edi\u00e7\u00f5es\n            \u003c/div\u003e\n        \u003c/div\u003e\n        ",
+  "iconSize": [50, 40],
+  "iconAnchor": [25, 40],
+  "className": "empty",
+});
+        
+    
+        var popup_a4ea189fcc6de7f42ed4b537a16d9980 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_00394ff7f85e986c45b1c45ef6f6687d = $(`<div id="html_00394ff7f85e986c45b1c45ef6f6687d" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Mexico</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1970.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">95.0</td>             </tr>                        <tr>                 <td style="border:1px solid #ddd; padding:6px;">1986.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">132.0</td>             </tr>         </table></div></div>`)[0];
+                popup_a4ea189fcc6de7f42ed4b537a16d9980.setContent(html_00394ff7f85e986c45b1c45ef6f6687d);
+            
+        
+
+        marker_feb971ac69f809bf61ba8c2155eadedc.bindPopup(popup_a4ea189fcc6de7f42ed4b537a16d9980)
+        ;
+
+        
+    
+    
+            marker_feb971ac69f809bf61ba8c2155eadedc.bindTooltip(
+                `<div>
+                     Mexico (2 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_feb971ac69f809bf61ba8c2155eadedc.setIcon(div_icon_fac7769c4cb1472a79a586823873d952);
+            
+    
+            var marker_0a984254b88ec9887c5e5de792415549 = L.marker(
+                [25.3, 51.5],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_db4631e6abd02043e033f8dbb6f8b73e = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/qa.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_16fca8d1f22f4d95c827878b77ee9265 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_b5110dab57035f118b7598d61f6e65ce = $(`<div id="html_b5110dab57035f118b7598d61f6e65ce" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Qatar</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">2022.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px;">France</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">172.0</td>             </tr>         </table></div></div>`)[0];
+                popup_16fca8d1f22f4d95c827878b77ee9265.setContent(html_b5110dab57035f118b7598d61f6e65ce);
+            
+        
+
+        marker_0a984254b88ec9887c5e5de792415549.bindPopup(popup_16fca8d1f22f4d95c827878b77ee9265)
+        ;
+
+        
+    
+    
+            marker_0a984254b88ec9887c5e5de792415549.bindTooltip(
+                `<div>
+                     Qatar (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a984254b88ec9887c5e5de792415549.setIcon(custom_icon_db4631e6abd02043e033f8dbb6f8b73e);
+            
+    
+            var marker_da6c2016e1ecc5a578183e6fde1503d1 = L.marker(
+                [55.8, 37.6],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_bfeedea545242df73fa016358083396c = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/ru.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_59106a0fc3e39f04e3453b3e0f8f9a2a = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_ad03a5ecad19a93e618a44202d8b39c7 = $(`<div id="html_ad03a5ecad19a93e618a44202d8b39c7" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Russia</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">2018.0</td>                 <td style="border:1px solid #ddd; padding:6px;">France</td>                 <td style="border:1px solid #ddd; padding:6px;">Croatia</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">169.0</td>             </tr>         </table></div></div>`)[0];
+                popup_59106a0fc3e39f04e3453b3e0f8f9a2a.setContent(html_ad03a5ecad19a93e618a44202d8b39c7);
+            
+        
+
+        marker_da6c2016e1ecc5a578183e6fde1503d1.bindPopup(popup_59106a0fc3e39f04e3453b3e0f8f9a2a)
+        ;
+
+        
+    
+    
+            marker_da6c2016e1ecc5a578183e6fde1503d1.bindTooltip(
+                `<div>
+                     Russia (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_da6c2016e1ecc5a578183e6fde1503d1.setIcon(custom_icon_bfeedea545242df73fa016358083396c);
+            
+    
+            var marker_9bd046a4ad49e0b9fcbcefb1a5f18781 = L.marker(
+                [-33.9, 18.4],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_67a68959911779f0dc314793d4cd5edc = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/za.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_f73fedf363372b6a7ca5cfb5c7162c26 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_fb463da1bf35f5d7c53b5548e98d2607 = $(`<div id="html_fb463da1bf35f5d7c53b5548e98d2607" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">South Africa</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">2010.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Spain</td>                 <td style="border:1px solid #ddd; padding:6px;">Netherlands</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">145.0</td>             </tr>         </table></div></div>`)[0];
+                popup_f73fedf363372b6a7ca5cfb5c7162c26.setContent(html_fb463da1bf35f5d7c53b5548e98d2607);
+            
+        
+
+        marker_9bd046a4ad49e0b9fcbcefb1a5f18781.bindPopup(popup_f73fedf363372b6a7ca5cfb5c7162c26)
+        ;
+
+        
+    
+    
+            marker_9bd046a4ad49e0b9fcbcefb1a5f18781.bindTooltip(
+                `<div>
+                     South Africa (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9bd046a4ad49e0b9fcbcefb1a5f18781.setIcon(custom_icon_67a68959911779f0dc314793d4cd5edc);
+            
+    
+            var marker_a663aac3172fcda952a08e92c8e06751 = L.marker(
+                [40.4, -3.7],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_275c4f2d7f7a040c1e2a20d594898f9e = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/es.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_1c3733d91323e98344325bbfcb263c21 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_7ab16e28abe1da26689d85335e1c0bb7 = $(`<div id="html_7ab16e28abe1da26689d85335e1c0bb7" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Spain</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1982.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">146.0</td>             </tr>         </table></div></div>`)[0];
+                popup_1c3733d91323e98344325bbfcb263c21.setContent(html_7ab16e28abe1da26689d85335e1c0bb7);
+            
+        
+
+        marker_a663aac3172fcda952a08e92c8e06751.bindPopup(popup_1c3733d91323e98344325bbfcb263c21)
+        ;
+
+        
+    
+    
+            marker_a663aac3172fcda952a08e92c8e06751.bindTooltip(
+                `<div>
+                     Spain (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a663aac3172fcda952a08e92c8e06751.setIcon(custom_icon_275c4f2d7f7a040c1e2a20d594898f9e);
+            
+    
+            var marker_c919d8b4170b5d966f66bc28397a51e2 = L.marker(
+                [59.3, 18.1],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_007c87df2b239857d3391534b3e35744 = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/se.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_1ad4f06d5f75479e2429c757a6580bac = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_2608b9a8299bcb9ff216737e49a670f1 = $(`<div id="html_2608b9a8299bcb9ff216737e49a670f1" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Sweden</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1958.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Sweden</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">126.0</td>             </tr>         </table></div></div>`)[0];
+                popup_1ad4f06d5f75479e2429c757a6580bac.setContent(html_2608b9a8299bcb9ff216737e49a670f1);
+            
+        
+
+        marker_c919d8b4170b5d966f66bc28397a51e2.bindPopup(popup_1ad4f06d5f75479e2429c757a6580bac)
+        ;
+
+        
+    
+    
+            marker_c919d8b4170b5d966f66bc28397a51e2.bindTooltip(
+                `<div>
+                     Sweden (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c919d8b4170b5d966f66bc28397a51e2.setIcon(custom_icon_007c87df2b239857d3391534b3e35744);
+            
+    
+            var marker_3e81a87a46d6a97730dc6f758fa963f1 = L.marker(
+                [46.9, 7.5],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_f6682cd56905ae21a68cdbce8608fd35 = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/ch.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_9ddcee025c115bfe6cf52177130a0683 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_4f359ac27732ea949ec984ba8769459f = $(`<div id="html_4f359ac27732ea949ec984ba8769459f" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Switzerland</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1954.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Germany FR</td>                 <td style="border:1px solid #ddd; padding:6px;">Hungary</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">140.0</td>             </tr>         </table></div></div>`)[0];
+                popup_9ddcee025c115bfe6cf52177130a0683.setContent(html_4f359ac27732ea949ec984ba8769459f);
+            
+        
+
+        marker_3e81a87a46d6a97730dc6f758fa963f1.bindPopup(popup_9ddcee025c115bfe6cf52177130a0683)
+        ;
+
+        
+    
+    
+            marker_3e81a87a46d6a97730dc6f758fa963f1.bindTooltip(
+                `<div>
+                     Switzerland (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e81a87a46d6a97730dc6f758fa963f1.setIcon(custom_icon_f6682cd56905ae21a68cdbce8608fd35);
+            
+    
+            var marker_d68bf2e49c19e25564604b990772ff32 = L.marker(
+                [38.9, -77.0],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_840130cbf9a4a25f273f62c59f5da495 = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/us.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_557939a3055f802fa26759e3fd0be6e2 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_750d157410ef1ab3bfe603c1ffa1a230 = $(`<div id="html_750d157410ef1ab3bfe603c1ffa1a230" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">USA</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1994.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Brazil</td>                 <td style="border:1px solid #ddd; padding:6px;">Italy</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">141.0</td>             </tr>         </table></div></div>`)[0];
+                popup_557939a3055f802fa26759e3fd0be6e2.setContent(html_750d157410ef1ab3bfe603c1ffa1a230);
+            
+        
+
+        marker_d68bf2e49c19e25564604b990772ff32.bindPopup(popup_557939a3055f802fa26759e3fd0be6e2)
+        ;
+
+        
+    
+    
+            marker_d68bf2e49c19e25564604b990772ff32.bindTooltip(
+                `<div>
+                     USA (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d68bf2e49c19e25564604b990772ff32.setIcon(custom_icon_840130cbf9a4a25f273f62c59f5da495);
+            
+    
+            var marker_7d52809fa22659692080f986456ae9fd = L.marker(
+                [-34.9, -56.2],
+                {
+}
+            ).addTo(marker_cluster_aea0a6b18fd6e435db94323572a37a23);
+        
+    
+        var custom_icon_4e3aba09b4f34b94de66f37a0233592c = L.icon({
+  "iconUrl": "https://flagcdn.com/w40/uy.png",
+  "iconSize": [40, 25],
+});
+        
+    
+        var popup_80a6dadf16a33f96db7bdcf829a012e6 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_9b5dd3ca44735c0f67f53618209f4521 = $(`<div id="html_9b5dd3ca44735c0f67f53618209f4521" style="width: 100.0%; height: 100.0%;">      <div style="max-width:400px">         <h3 style="text-align:center; margin-bottom:10px;">Uruguay</h3>         <table style="width:100%; border-collapse: collapse; font-size:14px;">             <tr style="background-color:#2c3e50; color:white;">                 <th style="padding:8px;">Ano</th>                 <th style="padding:8px;">Campeão</th>                 <th style="padding:8px;">Vice</th>                 <th style="padding:8px;">Gols</th>             </tr>                    <tr>                 <td style="border:1px solid #ddd; padding:6px;">1930.0</td>                 <td style="border:1px solid #ddd; padding:6px;">Uruguay</td>                 <td style="border:1px solid #ddd; padding:6px;">Argentina</td>                 <td style="border:1px solid #ddd; padding:6px; text-align:center;">70.0</td>             </tr>         </table></div></div>`)[0];
+                popup_80a6dadf16a33f96db7bdcf829a012e6.setContent(html_9b5dd3ca44735c0f67f53618209f4521);
+            
+        
+
+        marker_7d52809fa22659692080f986456ae9fd.bindPopup(popup_80a6dadf16a33f96db7bdcf829a012e6)
+        ;
+
+        
+    
+    
+            marker_7d52809fa22659692080f986456ae9fd.bindTooltip(
+                `<div>
+                     Uruguay (1 edição(ões))
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d52809fa22659692080f986456ae9fd.setIcon(custom_icon_4e3aba09b4f34b94de66f37a0233592c);
+            
+    
+            marker_cluster_aea0a6b18fd6e435db94323572a37a23.addTo(map_4ef40031d82f9881a587e16d3285803d);
+        
+    
+            var layer_control_801405b7031b77b2db6c486aea57b297_layers = {
+                base_layers : {
+                    "Mapa Padr\u00e3o" : tile_layer_16be9df11c018de41ba7d14e199d527f,
+                    "Mapa Claro" : tile_layer_b444e56ec07c37fcfca16281219e7e89,
+                },
+                overlays :  {
+                    "Sedes das Copas" : marker_cluster_aea0a6b18fd6e435db94323572a37a23,
+                },
+            };
+            let layer_control_801405b7031b77b2db6c486aea57b297 = L.control.layers(
+                layer_control_801405b7031b77b2db6c486aea57b297_layers.base_layers,
+                layer_control_801405b7031b77b2db6c486aea57b297_layers.overlays,
+                {
+  "position": "bottomright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_4ef40031d82f9881a587e16d3285803d);
+
+        
+</script>
+</html>
